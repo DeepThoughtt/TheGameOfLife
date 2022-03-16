@@ -273,16 +273,7 @@ class GameOfLife:
                     
                 while y < self.height + 1:
                     alive_neighbors = self.__seq_check_neighbors(x, y)
-                        
-                    if alive_neighbors < 2 or alive_neighbors > 3:
-                        column[y - 1] = 0
-                        
-                    elif alive_neighbors == 3:
-                        column[y - 1] = 1
-                            
-                    elif alive_neighbors == 2:
-                        column[y - 1] = self.game_grid[y][x]
-                        
+                    column[y - 1] = {3 : 1, 2 : self.game_grid[y][x]}.get(alive_neighbors, 0)
                     y += 1
                     
                 barrier.wait(timeout = self.sleep_time + 0.1)
