@@ -2,7 +2,7 @@
 Two versions of Conway's Game Of Life: a C++ version (CLI) and a Python version (GUI)
 
 ## What is the Game Of Life?
-Conway's Game Of Life is a 2D automata, you can find out how it works [here](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
+Conway's Game Of Life is a 2D cellular automaton, you can find out how it works [here](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 ## C++ Version
 The C++ version is a CLI program. The `cpp` folder contains the main program, a folder containing some example configurations that can be loaded inside the program and a log folder where will be stored the logfile, in case the user decides to save it. The grid size is fixed, modifying it you risk to break the program when, for example, importing a configuration file during the execution.
