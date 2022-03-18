@@ -1,6 +1,4 @@
-from threading import BrokenBarrierError
-from threading import Barrier
-from threading import Thread
+from threading import BrokenBarrierError, Barrier, Thread
 from tkinter import *
 import platform
 import time
