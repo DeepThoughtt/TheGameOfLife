@@ -68,7 +68,9 @@ class GameOfLife:
         self.mode = False
         self.playing = False
         self.game_thread = None
+        self.grid_threads = []
         
+        self.root.protocol("WM_DELETE_WINDOW", self.__on_close)
         self.root.mainloop()
     
     
@@ -208,6 +210,11 @@ class GameOfLife:
             self.gui_cells_grid[y][x].config(bg = "black")
         else:
             self.gui_cells_grid[y][x].config(bg = "white")
+            
+    
+    def __on_close(self):
+        self.playing = False
+        self.root.destroy()
     
     
     # LOGIC (SEQUENTIAL)
@@ -292,14 +299,13 @@ class GameOfLife:
     
     def __mt_game(self):
         barrier = Barrier(self.width + 1)
-        threads = []
         x, y = 1, 1
         
         while x < self.width + 1:
             cell_thread = Thread(target = self.__mt_thread_iteration, args = (barrier, x))
             cell_thread.should_abort_immediately = True
-            threads.append(cell_thread)
-            threads[len(threads) - 1].start()
+            self.grid_threads.append(cell_thread)
+            self.grid_threads[len(self.grid_threads) - 1].start()
             x += 1
         
         while self.playing:
@@ -309,7 +315,7 @@ class GameOfLife:
             except BrokenBarrierError:
                 pass
         
-        del threads
+        self.grid_threads = []
         
         
     # UTILITY
