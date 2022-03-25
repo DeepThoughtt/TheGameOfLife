@@ -107,8 +107,7 @@ class GameOfLife:
             
             
     def __change_mode(self, event):
-        x = self.variable.get()
-        self.mode = x == "Multi-Threaded"
+        self.mode = self.variable.get() == "Multi-Threaded"
             
     
     def __start_game(self):
