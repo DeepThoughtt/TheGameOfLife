@@ -327,9 +327,10 @@ class GameOfLife:
         print()
         
         
-if __name__ == "__main__":
+def main():
     game = GameOfLife()
     
     
-    
+if __name__ == "__main__":
+    main()
     
