@@ -131,7 +131,7 @@ void update_data_grid_values(int data_grid[GAME_SIZE - 2][GAME_SIZE - 2], int ga
 
 void update_game_grid_values(int game_grid[GAME_SIZE][GAME_SIZE], int data_grid[GAME_SIZE - 2][GAME_SIZE - 2], int function = 2)
 {
-	// in the initialization we don't want to elaborate who lives and who dies
+	// during the initialization we don't want to elaborate who lives and who dies
 	if(function == 1)
 	{
 		for(int i = 1; i < GAME_SIZE - 1; i++)
