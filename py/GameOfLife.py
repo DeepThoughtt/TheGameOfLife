@@ -298,7 +298,7 @@ class GameOfLife:
     
     def __mt_game(self):
         barrier = Barrier(self.width + 1)
-        x, y = 1, 1
+        x = 1
         
         while x < self.width + 1:
             cell_thread = Thread(target = self.__mt_thread_iteration, args = (barrier, x))
