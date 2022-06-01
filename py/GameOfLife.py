@@ -45,7 +45,7 @@ class GameOfLife:
         self.mid_frame = Frame(self.root)
         self.mid_frame.grid(row = 1, column = 0)
         
-        self.modes = ("Sequential", "Multi-Threaded")
+        self.modes = ("Multi-Threaded", "Sequential")
         self.variable = StringVar()
         self.variable.set(self.modes[0])
         self.mode_menu = OptionMenu(self.mid_frame, self.variable, *self.modes, command = self.__change_mode)
@@ -65,7 +65,7 @@ class GameOfLife:
         self.sleep_time = 0
         self.game_grid = []
         self.gui_cells_grid = []
-        self.mode = False
+        self.mode = True
         self.playing = False
         self.game_thread = None
         self.grid_threads = []
