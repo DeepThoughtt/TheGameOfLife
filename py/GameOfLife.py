@@ -148,7 +148,7 @@ class GameOfLife:
         h = self.height_entry.get().strip()
         s = self.sleep_entry.get().strip()
         
-        if w != "" and w.isnumeric() and h != "" and h.isnumeric() and s != "" and int(w) > 0 and int(h) > 0 and float(s) >= 0:
+        if w != "" and w.isnumeric() and h != "" and h.isnumeric() and s != "" and int(w) > 0 and int(h) > 0 and float(s) >= 0 and float(s) <= 3:
             w = int(w)
             h = int(h)
             s = float(s)
@@ -214,6 +214,8 @@ class GameOfLife:
     def __on_close(self):
         self.playing = False
         self.root.destroy()
+        if self.mode:
+            time.sleep(self.sleep_time)
     
     
     # LOGIC (SEQUENTIAL)
