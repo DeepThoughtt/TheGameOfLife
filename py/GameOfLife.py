@@ -4,6 +4,7 @@ import platform
 import time
 import copy
 
+
 class GameOfLife:
 
     def __init__(self):
